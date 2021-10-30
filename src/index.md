@@ -10,6 +10,6 @@ features:
 - title: Consultas DML
   details: Aprenderas las sentencias basicas para realizar consultas a una base de datos (CRUD)
 - title:  Extras
-  details: prenderas a como realizar restrincciones en una base de datos
+  details: Aprenderas a como realizar restrincciones en una base de datos
 footer: Angel Marcos Catilla ❤️
 ---
