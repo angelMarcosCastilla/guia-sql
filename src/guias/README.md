@@ -9,7 +9,7 @@ SQL lenguaje de consulta estructurado, nos permite administrar y recuperar infom
 
 ## ¿Cómo instalar Microsoft SQL Server?
 
-Microsoft SQl server es un sistema de gestion de base de datos relacionales desarrollada por Microsoft. para su instalaciondeberiamos ir a la pagina oficial [ir a la web](https://www.microsoft.com/es-es/sql-server/sql-server-downloads) y descargar los instaladores
+Microsoft SQl server es un sistema de gestion de base de datos relacionales desarrollada por Microsoft. para su instalación deberiamos ir a la pagina oficial [ir a la web](https://www.microsoft.com/es-es/sql-server/sql-server-downloads) y descargar los instaladores
 
 Puedes visitar a este [link](https://www.youtube.com/watch?v=YOaC_TyOrdk) para guiarte en la instalación 
 

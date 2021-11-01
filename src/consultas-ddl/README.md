@@ -39,7 +39,7 @@ Tambien se usa `CREATE` para crear una tabla:
   
 ```
 :::tip
-  Los nombres de las tablas se deben escribir en plurales,
+  Los nombres de las tablas se deben escribir en plural.
 :::
 
 ## ALTER
