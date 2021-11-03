@@ -1,3 +1,103 @@
 # CONCEPTOS EXTRAS 
 
-## restrinciones
+## Restrinciones
+los `CONSTRAINT` Son restricciones que se utilizan para limitar el tipo de dato que puede recibir una columna.
+
+Las restricciones son reglas que Motor de base de datos de SQL Server aplica de forma automática.
+
+|Tipos de restrinciones|    Descripcion     |
+|----------------------|--------------------|
+|   NOT NULL           | Especifica que un campo no debe ser nulo
+|   PRIMARY KEY         | El campo es de clave  primaria
+|   UNIQUE             | Los valores de un campo no se debe repetir
+|   FOREIGN KEY        | El campo es de una clave externa
+|   CHECK              | Se utiliza para limitar rango de valores
+|   DEFAULT            | Establece un valor por defecto a una columna
+
+### NOT NULL
+ La restrcción `NOT NULL` nos indica que un campo no debe estar vacio, debe tener un valor si o si.
+
+ las restricciones podemos crearla cuando creamos una tabla  
+ ```sql
+ CREATE TABLE  usuarios (
+   id                 INT IDENTITY(1,1),
+   nombre             VARCHAR(50) NOT NULL,
+   apellido           VARCHAR(50) NOT NULL,
+   numerocelular      CHAR(9) 
+ )
+  --En esta tabla hemos creados restricciones  de tipo NOT NULL a 
+  --los campos nombre y apellido
+ ```
+ 
+  ## PRIMARY KEY
+  La clave primaria o `PRIMARY KEY`, identifica de manera única cada fila de una tabla 
+
+  la clave primaria no se debe repetir y debe ser único
+```sql
+ CREATE TABLE  usuarios (
+   id                 INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+   nombre             VARCHAR(50) NOT NULL,
+   apellido           VARCHAR(50) NOT NULL,
+   numerocelular      CHAR(9) 
+
+ )
+ --Nuestro campo id seria nuestra clave primaria
+ ```
+
+ ## UNIQUE
+ las restrinciones `UNIQUE` nos indican que los campos deben ser unicos 
+
+:::tip
+  las restrinciones tienen que llevar un nombre descriptivos `<tipoRestricción>_<campo>_<nombreTabla>`
+  - UNIQUE      : uk
+  - FOREIGN KEY : fk
+  - CHECK       : ck
+:::
+ ```sql
+ CREATE TABLE  usuarios (
+   id                 INT IDENTITY(1,1),
+   nombre             VARCHAR(50) NOT NULL,
+   apellido           VARCHAR(50) NOT NULL,
+   numerocelular      CHAR(9) 
+
+   CONSTRAINT uk_numerocelular_usr  UNIQUE (numerocelular)
+ )
+
+ --Creamos una restricción UNIQUE para el campo numerocelular
+ ```
+ ## FOREIGN KEY
+ las restrinciones `FOREIGN KEY`, Es una o varias columnas que sirven para señalar cual es la clave primaria de otra tabla
+
+ ```sql
+ CREATE TABLE  usuarios (
+   id                 INT IDENTITY(1,1),
+   nombre             VARCHAR(50) NOT NULL,
+   apellido           VARCHAR(50) NOT NULL,
+   numerocelular      CHAR(9),
+   pais               INT NOT NULL
+
+   CONSTRAINT fk_pais_usr  FOREIGN KEY (pais) REFERENCES paises(idpais)
+ )
+
+ --Nuestro campos pais contiene un id de una tabla paises,
+ -- Creamos una restrinción para espeficiar que pais sería una 
+ --llave secundaria, que viene a ser la llave primaria de la tabla paises
+ ```
+ ## CHECK
+ las restrinciones `CHECK`, nos permite limitar los rangos de una tabla.
+
+ ```sql
+ CREATE TABLE  usuarios (
+   id                 INT IDENTITY(1,1),
+   nombre             VARCHAR(50) NOT NULL,
+   apellido           VARCHAR(50) NOT NULL,
+   numerocelular      CHAR(9),
+   pais               INT NOT NULL,
+   edad               TINYINT
+
+   CONSTRAINT ck_edad_usr CHECK (edad > 0)
+ )
+
+ --creamos una restricción de tipos CHECK 
+ --para indicar que la edad no debe ser menor a 0
+ ```

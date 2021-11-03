@@ -66,6 +66,7 @@ cuando hacemos una actualización  en una base de datos, debemos especificar que
   UPDATE FROM cursos WHERE id = 1
 ```
 
-:::warning ! Tener en cuenta !
-  cuando hacemos un delete debemos asegurarnos que tenga una condicion con `WHERE`, sino se elimnaría todo los registro de mi tabla.
+:::danger ! Tener en cuenta !
+  cuando hacemos un delete debemos asegurarnos que tenga una condicion con `WHERE`, sino se eliminaría todo los registro de la tabla. 
+  y te puden despedir del trabajo 😭😢
 :::
