@@ -1,9 +1,9 @@
 # CONCEPTOS EXTRAS 
 
-## Restrinciones
+## Restricciones
 los `CONSTRAINT` Son restricciones que se utilizan para limitar el tipo de dato que puede recibir una columna.
 
-Las restricciones son reglas que Motor de base de datos de SQL Server aplica de forma automática.
+Las restricciones son reglas que el Motor de base de datos de SQL Server aplica de forma automática.
 
 |Tipos de restrinciones|    Descripcion     |
 |----------------------|--------------------|
@@ -158,4 +158,5 @@ SELECT CategoryID, SUM(UnitsInStock) AS 'sumatoria'
 	GROUP BY CategoryID
 	ORDER BY 2
 GO
+
 ```

@@ -49,7 +49,7 @@ module.exports = {
         link: "https://v1.vuepress.vuejs.org",
       },
     ],
-    sidebar:['/', '/guias/','/consultas-dml/','/consultas-ddl/', '/extras/'],
+    sidebar:['/', '/guias/','/consultas-dml/','/consultas-ddl/', '/consultas-avanzadas/','/extras/'],
   },
 
   /**
