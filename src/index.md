@@ -3,7 +3,7 @@ home: true
 heroImage: /imagenes/sql.svg
 tagline: 
 actionText: iniciar →
-actionLink: //
+actionLink: /guias/
 features:
 - title: Consultas DDL
   details: Aprenderas las sentencias basicas para estructurar una base de datos

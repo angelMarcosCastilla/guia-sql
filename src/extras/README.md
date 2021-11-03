@@ -29,7 +29,7 @@ Las restricciones son reglas que Motor de base de datos de SQL Server aplica de 
   --los campos nombre y apellido
  ```
  
-  ## PRIMARY KEY
+### PRIMARY KEY
   La clave primaria o `PRIMARY KEY`, identifica de manera única cada fila de una tabla 
 
   la clave primaria no se debe repetir y debe ser único
@@ -44,7 +44,7 @@ Las restricciones son reglas que Motor de base de datos de SQL Server aplica de 
  --Nuestro campo id seria nuestra clave primaria
  ```
 
- ## UNIQUE
+ ### UNIQUE
  las restrinciones `UNIQUE` nos indican que los campos deben ser unicos 
 
 :::tip
@@ -65,7 +65,7 @@ Las restricciones son reglas que Motor de base de datos de SQL Server aplica de 
 
  --Creamos una restricción UNIQUE para el campo numerocelular
  ```
- ## FOREIGN KEY
+ ### FOREIGN KEY
  las restrinciones `FOREIGN KEY`, Es una o varias columnas que sirven para señalar cual es la clave primaria de otra tabla
 
  ```sql
@@ -83,7 +83,7 @@ Las restricciones son reglas que Motor de base de datos de SQL Server aplica de 
  -- Creamos una restrinción para espeficiar que pais sería una 
  --llave secundaria, que viene a ser la llave primaria de la tabla paises
  ```
- ## CHECK
+ ### CHECK
  las restrinciones `CHECK`, nos permite limitar los rangos de una tabla.
 
  ```sql
@@ -101,3 +101,34 @@ Las restricciones son reglas que Motor de base de datos de SQL Server aplica de 
  --creamos una restricción de tipos CHECK 
  --para indicar que la edad no debe ser menor a 0
  ```
+
+## FECHAS Y HORAS 
+|   funciones     |   descripcción    |
+|-----------------|-------------------|
+|  GETDAY()	      | Retorna la fecha y hora del sistemas
+|  YEAR()		      | Obtiene el año de una fecha
+|  MONTH()	      | Obtiene el mes de una fecha
+|  DAY()			    | Obtiene el dia de una fecha
+|  hOUR()	        | Obtiene la hora de un valor de tiempo
+|  MINUTE()		    | Obtiene los minutos de un valor de  tiempo
+|  SECOND()		    | Obtiene los segundos de un  valor de tiempo
+
+Ejemplos: 
+
+```sql
+  --obtemenos la fecha actual del sistema
+  SELECT GETDAY() 
+
+  --Obtenemos el dia de una fecha
+  SELECT DAY('15/05/2000') --nos da 15
+  --Obtenemos el mes de una fecha
+  SELECT DAY('15/05/2000') --nos da 5
+  --Obtenemos el año de una fecha
+  SELECT DAY('15/05/2000') --nos da 2000
+ 
+```
+:::warning Tenemos que tener en cuenta:
+  El formato de la fecha que pasaremos como argumentos, debe ser igual a lo que tenemos configurado en nuestro sistema.
+:::
+
+## Consultas de resumen
