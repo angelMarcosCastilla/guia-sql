@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CONCEPTOS EXTRAS | Guía basica de SQL</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/assets/css/0.styles.c4236f38.css" as="style"><link rel="preload" href="/assets/js/app.04d93b49.js" as="script"><link rel="preload" href="/assets/js/2.a7c58199.js" as="script"><link rel="preload" href="/assets/js/13.fd1ad4c3.js" as="script"><link rel="prefetch" href="/assets/js/10.0641c0dd.js"><link rel="prefetch" href="/assets/js/11.14429d90.js"><link rel="prefetch" href="/assets/js/12.93b79982.js"><link rel="prefetch" href="/assets/js/14.a4b3be53.js"><link rel="prefetch" href="/assets/js/15.7bc31953.js"><link rel="prefetch" href="/assets/js/3.5379341d.js"><link rel="prefetch" href="/assets/js/4.6e21b9ad.js"><link rel="prefetch" href="/assets/js/5.7a522bf5.js"><link rel="prefetch" href="/assets/js/6.e4c8cbb1.js"><link rel="prefetch" href="/assets/js/7.22a5cd85.js"><link rel="prefetch" href="/assets/js/8.3dba53f4.js"><link rel="prefetch" href="/assets/js/9.05e9df43.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c4236f38.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Guía basica de SQL</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/" aria-current="page" class="sidebar-link">Home</a></li><li><a href="/guias/" class="sidebar-link">fundamentos basicos</a></li><li><a href="/consultas-dml/" class="sidebar-link">SQL DML</a></li><li><a href="/consultas-ddl/" class="sidebar-link">SQL DDL</a></li><li><a href="/consultas-avanzadas/" class="sidebar-link">CONSULTAS AVANZADAS</a></li><li><a href="/extras/" aria-current="page" class="active sidebar-link">CONCEPTOS EXTRAS</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/extras/#restricciones" class="sidebar-link">Restricciones</a></li><li class="sidebar-sub-header"><a href="/extras/#fechas-y-horas" class="sidebar-link">Fechas y Horas</a></li><li class="sidebar-sub-header"><a href="/extras/#consultas-de-resumen" class="sidebar-link">Consultas de resumen</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="conceptos-extras"><a href="#conceptos-extras" class="header-anchor">#</a> CONCEPTOS EXTRAS</h1> <h2 id="restricciones"><a href="#restricciones" class="header-anchor">#</a> Restricciones</h2> <p>los <code>CONSTRAINT</code> Son restricciones que se utilizan para limitar el tipo de dato que puede recibir una columna.</p> <p>Las restricciones son reglas que el Motor de base de datos de SQL Server aplica de forma automática.</p> <table><thead><tr><th>Tipos de restrinciones</th> <th>Descripcion</th></tr></thead> <tbody><tr><td>NOT NULL</td> <td>Especifica que un campo no debe ser nulo</td></tr> <tr><td>PRIMARY KEY</td> <td>El campo es de clave  primaria</td></tr> <tr><td>UNIQUE</td> <td>Los valores de un campo no se debe repetir</td></tr> <tr><td>FOREIGN KEY</td> <td>El campo es de una clave externa</td></tr> <tr><td>CHECK</td> <td>Se utiliza para limitar rango de valores</td></tr> <tr><td>DEFAULT</td> <td>Establece un valor por defecto a una columna</td></tr></tbody></table> <h3 id="not-null"><a href="#not-null" class="header-anchor">#</a> NOT NULL</h3> <p>La restrcción <code>NOT NULL</code> nos indica que un campo no debe estar vacio, debe tener un valor si o si.</p> <p>las restricciones podemos crearla cuando creamos una tabla</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span>  usuarios <span class="token punctuation">(</span>
+  id                 <span class="token keyword">INT</span> <span class="token keyword">IDENTITY</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  nombre             <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  apellido           <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  numerocelular      <span class="token keyword">CHAR</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span> 
+<span class="token punctuation">)</span>
+ <span class="token comment">--En esta tabla hemos creados restricciones  de tipo NOT NULL a </span>
+ <span class="token comment">--los campos nombre y apellido</span>
+</code></pre></div><h3 id="primary-key"><a href="#primary-key" class="header-anchor">#</a> PRIMARY KEY</h3> <p>La clave primaria o <code>PRIMARY KEY</code>, identifica de manera única cada fila de una tabla</p> <p>la clave primaria no se debe repetir y debe ser único</p> <div class="language-sql extra-class"><pre class="language-sql"><code> <span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span>  usuarios <span class="token punctuation">(</span>
+   id                 <span class="token keyword">INT</span> <span class="token keyword">IDENTITY</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+   nombre             <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+   apellido           <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+   numerocelular      <span class="token keyword">CHAR</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span> 
+
+ <span class="token punctuation">)</span>
+ <span class="token comment">--Nuestro campo id seria nuestra clave primaria</span>
+</code></pre></div><h3 id="unique"><a href="#unique" class="header-anchor">#</a> UNIQUE</h3> <p>las restrinciones <code>UNIQUE</code> nos indican que los campos deben ser unicos</p> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>las restrinciones tienen que llevar un nombre descriptivos <code>&lt;tipoRestricción&gt;_&lt;campo&gt;_&lt;nombreTabla&gt;</code></p> <ul><li>UNIQUE      : uk</li> <li>FOREIGN KEY : fk</li> <li>CHECK       : ck</li></ul></div> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span>  usuarios <span class="token punctuation">(</span>
+  id                 <span class="token keyword">INT</span> <span class="token keyword">IDENTITY</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  nombre             <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  apellido           <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  numerocelular      <span class="token keyword">CHAR</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span> 
+
+  <span class="token keyword">CONSTRAINT</span> uk_numerocelular_usr  <span class="token keyword">UNIQUE</span> <span class="token punctuation">(</span>numerocelular<span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+
+<span class="token comment">--Creamos una restricción UNIQUE para el campo numerocelular</span>
+</code></pre></div><h3 id="foreign-key"><a href="#foreign-key" class="header-anchor">#</a> FOREIGN KEY</h3> <p>las restrinciones <code>FOREIGN KEY</code>, Es una o varias columnas que sirven para señalar cual es la clave primaria de otra tabla</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span>  usuarios <span class="token punctuation">(</span>
+  id                 <span class="token keyword">INT</span> <span class="token keyword">IDENTITY</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  nombre             <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  apellido           <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  numerocelular      <span class="token keyword">CHAR</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  pais               <span class="token keyword">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span>
+
+  <span class="token keyword">CONSTRAINT</span> fk_pais_usr  <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>pais<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> paises<span class="token punctuation">(</span>idpais<span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+
+<span class="token comment">--Nuestro campos pais contiene un id de una tabla paises,</span>
+<span class="token comment">-- Creamos una restrinción para espeficiar que pais sería una </span>
+<span class="token comment">--llave secundaria, que viene a ser la llave primaria de la tabla paises</span>
+</code></pre></div><h3 id="check"><a href="#check" class="header-anchor">#</a> CHECK</h3> <p>las restrinciones <code>CHECK</code>, nos permite limitar los rangos de una tabla.</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span>  usuarios <span class="token punctuation">(</span>
+  id                 <span class="token keyword">INT</span> <span class="token keyword">IDENTITY</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  nombre             <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  apellido           <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  numerocelular      <span class="token keyword">CHAR</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  pais               <span class="token keyword">INT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  edad               <span class="token keyword">TINYINT</span>
+
+  <span class="token keyword">CONSTRAINT</span> ck_edad_usr <span class="token keyword">CHECK</span> <span class="token punctuation">(</span>edad <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+
+<span class="token comment">--creamos una restricción de tipos CHECK </span>
+<span class="token comment">--para indicar que la edad no debe ser menor a 0</span>
+</code></pre></div><h2 id="fechas-y-horas"><a href="#fechas-y-horas" class="header-anchor">#</a> Fechas y Horas</h2> <table><thead><tr><th>funciones</th> <th>descripcción</th></tr></thead> <tbody><tr><td>GETDAY()</td> <td>Retorna la fecha y hora del sistemas</td></tr> <tr><td>YEAR()</td> <td>Obtiene el año de una fecha</td></tr> <tr><td>MONTH()</td> <td>Obtiene el mes de una fecha</td></tr> <tr><td>DAY()</td> <td>Obtiene el dia de una fecha</td></tr> <tr><td>hOUR()</td> <td>Obtiene la hora de un valor de tiempo</td></tr> <tr><td>MINUTE()</td> <td>Obtiene los minutos de un valor de  tiempo</td></tr> <tr><td>SECOND()</td> <td>Obtiene los segundos de un  valor de tiempo</td></tr></tbody></table> <p>Ejemplos:</p> <div class="language-sql extra-class"><pre class="language-sql"><code>  <span class="token comment">--obtemenos la fecha actual del sistema</span>
+  <span class="token keyword">SELECT</span> GETDAY<span class="token punctuation">(</span><span class="token punctuation">)</span> 
+
+  <span class="token comment">--Obtenemos el dia de una fecha</span>
+  <span class="token keyword">SELECT</span> <span class="token keyword">DAY</span><span class="token punctuation">(</span><span class="token string">'15/05/2000'</span><span class="token punctuation">)</span> <span class="token comment">--nos da 15</span>
+  <span class="token comment">--Obtenemos el mes de una fecha</span>
+  <span class="token keyword">SELECT</span> <span class="token keyword">DAY</span><span class="token punctuation">(</span><span class="token string">'15/05/2000'</span><span class="token punctuation">)</span> <span class="token comment">--nos da 5</span>
+  <span class="token comment">--Obtenemos el año de una fecha</span>
+  <span class="token keyword">SELECT</span> <span class="token keyword">DAY</span><span class="token punctuation">(</span><span class="token string">'15/05/2000'</span><span class="token punctuation">)</span> <span class="token comment">--nos da 2000</span>
+ 
+</code></pre></div><div class="custom-block warning"><p class="custom-block-title">Tenemos que tener en cuenta:</p> <p>El formato de la fecha que pasaremos como argumentos, debe ser igual a lo que tenemos configurado en nuestro sistema.</p></div> <h2 id="consultas-de-resumen"><a href="#consultas-de-resumen" class="header-anchor">#</a> Consultas de resumen</h2> <p>Su nombre mismo nos dice, esto nos ayudara a realizar consultas que no serian tan detalladas, para utilizar estas consultas usamos <code>GROUP BY</code> para agrupar los valores</p> <table><thead><tr><th>funciones</th> <th>descripcción</th></tr></thead> <tbody><tr><td>COUNT()</td> <td>Sirve para contar valores</td></tr> <tr><td>MAX()</td> <td>Obtiene valores maximo</td></tr> <tr><td>MIN()</td> <td>Obtiene valores minimo</td></tr> <tr><td>SUM()</td> <td>Obtiene la suma de valores</td></tr> <tr><td>AVG()</td> <td>Obtiene el promedio de valores</td></tr></tbody></table> <p>Ejemplos: para estos ejemplos usaremos una base de datos de prueba, pude descarar en enste <a href="https://github.com/andresWeitzel/Base-de-datos-SQL-Northwind" target="_blank" rel="noopener noreferrer">link<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">-- Queremos  saber cúantos clientes hay por cada pais</span>
+<span class="token keyword">SELECT</span> Country<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>Country<span class="token punctuation">)</span> 
+	<span class="token keyword">FROM</span> Customers
+	<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> Country
+GO
+
+<span class="token comment">-- Queremos  saber la cantidad de stock que hay por categoria</span>
+
+<span class="token keyword">SELECT</span> CategoryID<span class="token punctuation">,</span> <span class="token function">SUM</span><span class="token punctuation">(</span>UnitsInStock<span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">'sumatoria'</span>
+	<span class="token keyword">FROM</span> Products
+	<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> CategoryID
+	<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token number">2</span>
+GO
+
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/consultas-avanzadas/" class="prev">
+        CONSULTAS AVANZADAS
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.04d93b49.js" defer></script><script src="/assets/js/2.a7c58199.js" defer></script><script src="/assets/js/13.fd1ad4c3.js" defer></script>
+  </body>
+</html>
