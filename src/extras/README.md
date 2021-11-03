@@ -102,7 +102,7 @@ Las restricciones son reglas que Motor de base de datos de SQL Server aplica de 
  --para indicar que la edad no debe ser menor a 0
  ```
 
-## FECHAS Y HORAS 
+## Fechas y Horas
 |   funciones     |   descripcción    |
 |-----------------|-------------------|
 |  GETDAY()	      | Retorna la fecha y hora del sistemas
@@ -132,3 +132,30 @@ Ejemplos:
 :::
 
 ## Consultas de resumen
+Su nombre mismo nos dice, esto nos ayudara a realizar consultas que no serian tan detalladas, para utilizar estas consultas usamos `GROUP BY` para agrupar los valores
+
+|   funciones     |   descripcción    |
+|-----------------|-------------------|
+|  COUNT()	      | Sirve para contar valores
+|  MAX()		      | Obtiene valores maximo
+|  MIN()	        | Obtiene valores minimo
+|  SUM()			    | Obtiene la suma de valores
+|  AVG()	        | Obtiene el promedio de valores
+
+Ejemplos: para estos ejemplos usaremos una base de datos de prueba, pude descarar en enste [link](https://github.com/andresWeitzel/Base-de-datos-SQL-Northwind)
+
+```sql
+-- Queremos  saber cúantos clientes hay por cada pais
+SELECT Country, COUNT(Country) 
+	FROM Customers
+	GROUP BY Country
+GO
+
+-- Queremos  saber la cantidad de stock que hay por categoria
+
+SELECT CategoryID, SUM(UnitsInStock) AS 'sumatoria'
+	FROM Products
+	GROUP BY CategoryID
+	ORDER BY 2
+GO
+```
