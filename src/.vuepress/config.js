@@ -1,20 +1,17 @@
 const { description } = require("../../package");
 
 module.exports = {
-  /**
-   * Ref：https://v1.vuepress.vuejs.org/config/#title
-   */
+  dest: "docs",
+  base: "/guia-sql/",
   title: "Guía básica de SQL",
-  /**
-   * Ref：https://v1.vuepress.vuejs.org/config/#description
-   */
-  description: description,
+  locales: {
+    "/": {
+      lang: "es-ES",
+    },
+  },
 
-  /**
-   * Extra tags to be injected to the page HTML `<head>`
-   *
-   * ref：https://v1.vuepress.vuejs.org/config/#head
-   */
+  description:
+    "Guía basica para aprender los basico del gestor de base de datos SQL server",
   head: [
     ["meta", { name: "theme-color", content: "#174EA6" }],
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
@@ -24,13 +21,10 @@ module.exports = {
     ],
   ],
 
-  /**
-   * Theme configuration, here is the default theme configuration for VuePress.
-   *
-   * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
-   */
-  dest: "docs",
-  base: "/guia-sql/",
+  markdown: {
+    lineNumbers: false,
+  },
+
   themeConfig: {
     repo: "",
     editLinks: false,
@@ -41,14 +35,13 @@ module.exports = {
       {
         text: "Repositorio",
         link: "https://github.com/angelMarcosCastilla/guia-sql",
-        icon: "creative",
       },
     ],
     sidebar: [
       "/",
       "/guias/",
-      "/consultas-dml/",
       "/consultas-ddl/",
+      "/consultas-dml/",
       "/consultas-avanzadas/",
       "/extras/",
       "/practica/",

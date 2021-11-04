@@ -86,7 +86,7 @@ Con `ALTER` podemos modificar la estructura de una tabla.
 
 ```sql
   --Sintaxis
-  ALTER TABLE <nombre de la tabla> DROP CONSTRAINT  <nombre de la restrinccion>
+  ALTER TABLE <nombre de la tabla> DROP CONSTRAINT  <nombre de la restricción>
 
   --Ejemplo:
   ALTER TABLE cursos DROP CONSTRAINT uk_nombre_crs
@@ -96,7 +96,7 @@ Con `ALTER` podemos modificar la estructura de una tabla.
 
 ```sql
   --Sintaxis
-  ALTER TABLE <nombre de la tabla> ADD CONSTRAINT <nombre restrinccion>
+  ALTER TABLE <nombre de la tabla> ADD CONSTRAINT <nombre restricción>
 
   --Ejemplo:
   ALTER TABLE cursos ADD CONSTRAINT ck_precio_crs CHECK (precio > 0)
