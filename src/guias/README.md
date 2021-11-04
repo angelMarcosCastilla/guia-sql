@@ -1,4 +1,4 @@
-# fundamentos basicos
+# Fundamentos básicos
 
 ## ¿Qué es una base de datos?
 Una base de datos es una colección de información que esta de forma ordenada y estructuradas en un programa. 

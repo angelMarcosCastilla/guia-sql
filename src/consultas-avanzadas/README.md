@@ -1,10 +1,13 @@
 # CONSULTAS AVANZADAS
+
 Para estos ejemplos usaremos una base de datos de prueba, pude descargar en en este [link](https://github.com/andresWeitzel/Base-de-datos-SQL-Northwind)
 
-##  Like
+## Like
+
 `LIKE` nos permite realizar búsqueda inexacta esta se apoya de dos comodines.
+
 - % : Representa un conjunto  de caracteres
-- _ : representa un solo carácter
+- \_ : representa un solo carácter
 
 ```sql
 USE Northwind
@@ -22,7 +25,7 @@ GO
 SELECT * FROM Customers WHERE CompanyName LIKE '%n'
 GO
 
--- Mostrar los clientes cuya dirección contenga al número 22 
+-- Mostrar los clientes cuya dirección contenga al número 22
 SELECT * FROM Customers WHERE Address LIKE '%22%'
 GO
 
@@ -37,7 +40,9 @@ GO
 ```
 
 ## Top
+
 `TOP`, Se utiliza para especificar el número de registros que se devolverá.
+
 ```sql
 -- Los 5 productos más caros
 SELECT TOP 5 * FROM Products ORDER BY UnitPrice DESC
@@ -45,6 +50,7 @@ GO
 ```
 
 ## Order by
+
 `ORDER BY` nos permite ordenar de forma `ASC` ascendente o `DESC` descendente, por defecto si no especificamos en que orden se ordenara esta se hará en forma ascendente.
 
 ```sql
@@ -63,7 +69,8 @@ GO
 ```
 
 # As
-`AS` se utiliza para cambiar el nombre de una columna o tabla con un alias este alias solo existe  durante la duración de la consulta.
+
+`AS` se utiliza para cambiar el nombre de una columna o tabla con un alias este alias solo existe durante la duración de la consulta.
 
 ```sql
 SELECT CategoryID AS 'codigo'
@@ -73,14 +80,13 @@ GO
 ```
 
 ## And, Or , Not
+
 Estos son operadores que se utilizan para filtrar registro mediante condiciones.
-| operador | 								descripcción  										|	
+| operador | descripcción |
 |----------|---------------------------------------------------|
-| AND 		 | Muestra registro si las condiciones son verdaderas|
-| OR		   | Muestra registro si una de las condiciones son verdaderas|
-| NOT		   | Muestra registro si la condición es falsa|
-
-
+| AND | Muestra registro si las condiciones son verdaderas|
+| OR | Muestra registro si una de las condiciones son verdaderas|
+| NOT | Muestra registro si la condición es falsa|
 
 ```sql
 -- Seleccionar los productos que su nombre sean Ikura o Tofu
@@ -100,6 +106,7 @@ SELECT * FROM Products
 
 GO
 ```
+
 ## In
 
 `IN` nos permite especificar varios valores en una clásulas.
@@ -107,17 +114,19 @@ GO
 ```sql
  -- Selecionar los productos con su categoria sea de 1, 3, 5
 	SELECT *
-		FROM Products 
+		FROM Products
 		WHERE CategoryID  IN (1, 3, 5);
 	GO
 ```
 
 ## Between
-`BETWEEN` selecciona valores  dentro de un rango.
+
+`BETWEEN` selecciona valores dentro de un rango.
+
 ```sql
  -- Selecionar los productos con su categoria se encuentre entre 10 y 15
 	SELECT *
-		FROM Products 
+		FROM Products
 		WHERE CategoryID  BETWEEN 10 AND 15
 	GO
 ```

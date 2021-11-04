@@ -4,7 +4,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: "Guía basica de SQL",
+  title: "Guía básica de SQL",
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -16,7 +16,7 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/config/#head
    */
   head: [
-    ["meta", { name: "theme-color", content: "#3eaf7c" }],
+    ["meta", { name: "theme-color", content: "#174EA6" }],
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
     [
       "meta",
@@ -29,7 +29,7 @@ module.exports = {
    *
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
-  dest:"docs", 
+  dest: "docs",
   base: "/guia-sql/",
   themeConfig: {
     repo: "",
@@ -38,8 +38,21 @@ module.exports = {
     editLinkText: "",
     lastUpdated: false,
     nav: [
+      {
+        text: "Repositorio",
+        link: "https://github.com/angelMarcosCastilla/guia-sql",
+        icon: "creative",
+      },
     ],
-    sidebar:['/', '/guias/','/consultas-dml/','/consultas-ddl/', '/consultas-avanzadas/','/extras/'],
+    sidebar: [
+      "/",
+      "/guias/",
+      "/consultas-dml/",
+      "/consultas-ddl/",
+      "/consultas-avanzadas/",
+      "/extras/",
+      "/practica/",
+    ],
   },
 
   /**
