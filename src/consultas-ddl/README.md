@@ -1,13 +1,13 @@
 # SQL DDL
-## ¿qué son las setencias DDL?
+## ¿Qué son las setencias DDL?
  DDL (Lenguaje de Definición de Datos). Son sentencias que nos permiten definir, alterar, modificar objetos dentro de mi base de datos. Las cuales mencionamos a continuación:
 
 ## CREATE
 
-la palabra reservada `CREATE` nos permiten crear bases de datos, tablas etc.
+La palabra reservada `CREATE` nos permiten crear bases de datos, tablas etc.
 
 ### Crear una base de datos
-Para crear una base de datos escribimos los siguiente
+Para crear una base de datos escribimos lo siguiente: 
 ```sql
   --sintaxis
   CREATE DATABASE <nombre de la base de datos>
@@ -18,7 +18,7 @@ Para crear una base de datos escribimos los siguiente
 ```
 
 ### Crear una tabla
-Tambien se usa `CREATE` para crear una tabla:
+También se usa `CREATE` para crear una tabla:
 
 ```sql
   --sintaxis
@@ -43,7 +43,7 @@ Tambien se usa `CREATE` para crear una tabla:
 :::
 
 ## ALTER
-Con alter podemos modificar la estructura de una tabla
+Con `ALTER` podemos modificar la estructura de una tabla.
 
 ### Eliminar un campo de una tabla
 
@@ -75,7 +75,7 @@ Con alter podemos modificar la estructura de una tabla
   ALTER TABLE cursos ADD fechainicio DATE NOT NULL
 ```
 
-### Eliminar restrincciones
+### Eliminar restricciones
 
 ```sql 
   --Sintaxis
@@ -86,7 +86,7 @@ Con alter podemos modificar la estructura de una tabla
 ```
 
 
-### Agregar restrincciones
+### Agregar restricciones
 
 ```sql 
   --Sintaxis
@@ -97,5 +97,5 @@ Con alter podemos modificar la estructura de una tabla
 ```
 
 :::warning 
-  a estas alturas aun no conoces las restrincciones en SQL visite a este [enlace](/extras/)
+  a estas alturas aun no conoces las restricciones en SQL visite a este [enlace](/extras/)
 :::

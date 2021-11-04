@@ -38,18 +38,6 @@ module.exports = {
     editLinkText: "",
     lastUpdated: false,
     nav: [
-      {
-        text: "Guide",
-        link: "/guide/",
-      },
-      {
-        text: "Config",
-        link: "/config/",
-      },
-      {
-        text: "VuePress",
-        link: "https://v1.vuepress.vuejs.org",
-      },
     ],
     sidebar:['/', '/guias/','/consultas-dml/','/consultas-ddl/', '/consultas-avanzadas/','/extras/'],
   },
