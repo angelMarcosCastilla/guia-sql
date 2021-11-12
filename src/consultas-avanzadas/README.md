@@ -130,3 +130,126 @@ GO
 		WHERE CategoryID  BETWEEN 10 AND 15
 	GO
 ```
+
+## Consultas de resumen
+
+Su nombre mismo nos dice, esto nos ayudará a realizar consultas que no serian tan detalladas, para utilizar estas consultas usamos `GROUP BY` para agrupar los valores.
+
+Para estos ejemplos de consulta de resumen usaremos una base de datos de prueba, pude descargar en este [link](https://github.com/andresWeitzel/Base-de-datos-SQL-Northwind)
+
+Es común usar estas funciones para las consultas de resumen.
+
+| funciones | descripcción                   |
+| --------- | ------------------------------ |
+| COUNT()   | Sirve para contar valores      |
+| MAX()     | Obtiene valores máximo         |
+| MIN()     | Obtiene valores mínimo         |
+| SUM()     | Obtiene la suma de valores     |
+| AVG()     | Obtiene el promedio de valores |
+
+
+
+
+```sql
+-- Queremos  saber cúantos clientes hay por cada país
+SELECT Country, COUNT(Country)
+	FROM Customers
+	GROUP BY Country
+GO
+
+-- Queremos  saber la cantidad de stock que hay por categoría
+
+SELECT CategoryID, SUM(UnitsInStock) AS 'sumatoria'
+	FROM Products
+	GROUP BY CategoryID
+	ORDER BY 2
+GO
+
+-- Se desea saber cuanto cuesta el producto mas caro por categoria
+SELECT CategoryID, MAX(UnitPrice)
+	FROM Products 
+	GROUP BY  CategoryID
+GO
+
+```
+## Having
+En pocas Palabras la clásula  `HAVING` es el `WHERE`, pero para las consultas agrupadas
+
+```sql
+USE Northwind
+GO
+
+--Mostrar la cantidad de producto por categoria, y que cuya categoria
+--sea mayor a 5
+SELECT CategoryID, COUNT(ProductID) AS 'Cantidad'
+	FROM Products
+	GROUP BY CategoryID
+	HAVING CategoryID > 5
+GO
+```
+
+## Consultas multitablas
+
+Las consultas multitabla son llamadas así porque están basadas en más de una tabla
+
+:::tip
+Para realizar consultas multitablas deberíamos tener en cuenta las relaciones que hay entre ellas  
+:::
+
+Para estos ejemplos usaremos una base de datos de prueba, pude descargar en este [link](https://github.com/andresWeitzel/Base-de-datos-SQL-Northwind)
+
+### Inner join
+
+`INNER JOIN` selecciona los registros que tienen valores coincidentes en ambas tablas.
+
+```sql
+--Mostrar las lista de productos indicando su proveedor y unidades de stocks
+SELECT  Products.ProductID, Products.ProductName,
+		Suppliers.CompanyName, Suppliers.Country,
+		Products.UnitsInStock
+	FROM Products
+	INNER JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
+GO
+
+-- Mostrar la lista de la tabla pedidos(Orders) Idpedido, nombre de la compañia, fecha de pedido
+SELECT
+	Orders.OrderID,
+	Customers.CompanyName,
+	Customers.Country,
+	Orders.OrderDate
+	FROM Orders
+	INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID
+GO
+```
+
+Podemos realizar consultas de 3 tablas:
+
+```sql
+-- mostrar de la tabla producto(Products) el IDproducto, nombre Producto, categoria, proveedor, precio, stock
+SELECT  Products.ProductID,
+		Products.ProductName,
+		Categories.CategoryID,
+		Suppliers.CompanyName,
+		Products.UnitPrice,
+		Products.UnitsInStock
+	FROM Products
+	INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID
+	INNER JOIN Suppliers ON	Products.SupplierID = Suppliers.SupplierID
+GO
+
+-- Mostrar de la tabla pedidos(Orders) lo siguiente campos:
+--Idpedido, nombre de la compañia, telèfono del cliente, apellidos, nombre del empleado,
+-- fecha del pedido y codigo del pais.
+SELECT
+		Orders.OrderID,
+		Customers.CompanyName,
+		Customers.Phone,
+		Employees.LastName,
+		Employees.FirstName,
+		Orders.OrderDate,
+		Orders.ShipCountry
+	FROM Orders
+		INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID
+		INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+GO
+```

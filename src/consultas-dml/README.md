@@ -76,9 +76,9 @@ Cuando hacemos una actualización en una base de datos, debemos especificar que 
   DELETE  FROM <nombre de la tabla> WHERE condición
 
   --Ejemplo:
-  UPDATE FROM cursos WHERE id = 1
+  DELETE FROM cursos WHERE id = 1
 ```
-
+ 
 :::danger ! Tener en cuenta !
 Cuando hacemos un delete debemos asegurarnos que tenga una condición con `WHERE`, sino se eliminaría todos los registros de la tabla y
 y te pueden despedir del trabajo 😭😢

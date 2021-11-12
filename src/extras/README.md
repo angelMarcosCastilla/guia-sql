@@ -124,7 +124,7 @@ CREATE TABLE  usuarios (
 | YEAR()    | Obtiene el año de una fecha                |
 | MONTH()   | Obtiene el mes de una fecha                |
 | DAY()     | Obtiene el día de una fecha                |
-| hOUR()    | Obtiene la hora de un valor de tiempo      |
+| HOUR()    | Obtiene la hora de un valor de tiempo      |
 | MINUTE()  | Obtiene los minutos de un valor de tiempo  |
 | SECOND()  | Obtiene los segundos de un valor de tiempo |
 
@@ -147,99 +147,41 @@ Ejemplos:
 El formato de la fecha que pasaremos como argumentos, debe ser igual a lo que tenemos configurado en nuestro sistema.
 :::
 
-## Consultas de resumen
 
-Su nombre mismo nos dice, esto nos ayudará a realizar consultas que no serian tan detalladas, para utilizar estas consultas usamos `GROUP BY` para agrupar los valores.
+## Lenguaje Control de Flujo (Case, If)
 
-| funciones | descripcción                   |
-| --------- | ------------------------------ |
-| COUNT()   | Sirve para contar valores      |
-| MAX()     | Obtiene valores máximo         |
-| MIN()     | Obtiene valores mínimo         |
-| SUM()     | Obtiene la suma de valores     |
-| AVG()     | Obtiene el promedio de valores |
+`CASE` nos permite devolver un resultado a partir de un caso
 
-Ejemplos: para estos ejemplos usaremos una base de datos de prueba, pude descargar en este [link](https://github.com/andresWeitzel/Base-de-datos-SQL-Northwind)
+```SQL
+--Sintaxis
+CASE
+    WHEN condition1 THEN result1
+    WHEN condition2 THEN result2
+    WHEN conditionN THEN resultN
+    ELSE result
+END;
 
-```sql
--- Queremos  saber cúantos clientes hay por cada país
-SELECT Country, COUNT(Country)
-	FROM Customers
-	GROUP BY Country
-GO
-
--- Queremos  saber la cantidad de stock que hay por categoría
-
-SELECT CategoryID, SUM(UnitsInStock) AS 'sumatoria'
-	FROM Products
-	GROUP BY CategoryID
-	ORDER BY 2
-GO
-
+-- Ejemplo
+  
+-- mostrar un campo con un texto que diga si hay stock.
+SELECT ProductName, UnitPrice, UnitsInStock,
+CASE
+    WHEN UnitsInStock = 0 THEN 'no hay stock'
+    WHEN UnitsInStock  > 0 THEN 'hay stock'
+    ELSE ''
+END  'Desripción'
+FROM Products;
 ```
 
-## Consultas multitablas
-
-Las consultas multitabla son llamadas así porque están basadas en más de una tabla
-
-:::tip
-Para realizar consultas multitablas deberíamos tener en cuenta las relaciones que hay entre ellas  
-:::
-
-Para estos ejemplos usaremos una base de datos de prueba, pude descargar en este [link](https://github.com/andresWeitzel/Base-de-datos-SQL-Northwind)
-
-### Inner join
-
-`INNER JOIN` selecciona los registros que tienen valores coincidentes en ambas tablas.
-
-```sql
---Mostrar las lista de productos indicando su proveedor y unidades de stocks
-SELECT  Products.ProductID, Products.ProductName,
-		Suppliers.CompanyName, Suppliers.Country,
-		Products.UnitsInStock
-	FROM Products
-	INNER JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
-GO
-
--- Mostrar la lista de la tabla pedidos(Orders) Idpedido, nombre de la compañia, fecha de pedido
-SELECT
-	Orders.OrderID,
-	Customers.CompanyName,
-	Customers.Country,
-	Orders.OrderDate
-	FROM Orders
-	INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID
-GO
-```
-
-Podemos realizar consultas de 3 tablas:
-
-```sql
--- mostrar de la tabla producto(Products) el IDproducto, nombre Producto, categoria, proveedor, precio, stock
-SELECT  Products.ProductID,
-		Products.ProductName,
-		Categories.CategoryID,
-		Suppliers.CompanyName,
-		Products.UnitPrice,
-		Products.UnitsInStock
-	FROM Products
-	INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID
-	INNER JOIN Suppliers ON	Products.SupplierID = Suppliers.SupplierID
-GO
-
--- Mostrar de la tabla pedidos(Orders) lo siguiente campos:
---Idpedido, nombre de la compañia, telèfono del cliente, apellidos, nombre del empleado,
--- fecha del pedido y codigo del pais.
-SELECT
-		Orders.OrderID,
-		Customers.CompanyName,
-		Customers.Phone,
-		Employees.LastName,
-		Employees.FirstName,
-		Orders.OrderDate,
-		Orders.ShipCountry
-	FROM Orders
-		INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID
-		INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
-GO
+`IF` nos permite devolver un resultado a partir de una condicción
+```SQL
+--Sintaxis
+IF (Condiccón)
+  <Sentencias>
+ELSE
+   <Sentencias>
+-- Ejemplo
+IF 1 = 2 PRINT 'La expresión es verdadera.'  
+ELSE PRINT 'La expresión es verdadera.' ;  
+GO  
 ```
